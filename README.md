@@ -1,2 +1,3 @@
 # Newton-s-method-in-Matlab
-This repository contains implemantations of basic numerical method, particularly :
+This repository contains Matlab implemantations of basic numerical method, particularly :
+New-ton's method
