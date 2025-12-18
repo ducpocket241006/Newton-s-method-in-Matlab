@@ -1,0 +1,31 @@
+function newtonmethod(fun, a,b, eps)
+d1f = diff(fun);
+d2f = diff(fun, 2);
+N = ceil((b-a)/0.1)+1;
+t = linspace(a, b, N);
+x = double(subs(d1f, t));
+y = double(subs(d2f, t));
+if (all(x>0)&&all(y>0))||(all(x<0)&&all(y<0))||(all(x>0)&&all(y<0))||(all(x<0)&&all(y>0))
+    disp('Ham du dieu kien hoi tu')
+else 
+    disp('Ham khong du dieu kien hoi tu')
+    return
+end
+if subs(fun, a)*subs(d2f, a) <0
+    d = a;
+    x0 = b;
+else
+    d = b;
+    x0 = a;
+end
+M2 = max(abs(y));
+m1 = min(abs(x));
+while true
+    x1 = x0- subs(fun, x0)/subs(d1f, x0);
+    if M2/(2*m1)*abs(x1-x0)^2 < eps
+        break
+    end
+    x0 = x1;
+end
+x = double(x1)
+end
